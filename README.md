@@ -164,6 +164,104 @@ Impact Assessment
 ![Impact](https://github.com/user-attachments/assets/589df850-870c-43da-bc82-69eb6205832d)
 
 
+Threat Intelligence Enrichment
+
+For every IOC identified during the investigation, threat intelligence lookups were performed to enrich the findings and support detection.
+
+![IOC enrichment](https://github.com/user-attachments/assets/91a00ad8-723b-4f8c-b967-c4967d37dc11)
+
+Alert Fine-Tuning Recommendations
+One of the most valuable skills a SOC analyst brings is not just detecting threats, but improving the detection system itself. The following tuning recommendations are based on patterns observed during this simulation.
+![Recommendation](https://github.com/user-attachments/assets/768a2b6e-d904-4314-a917-70b1966cd158)
+
+
+
+ Remediation & Incident Response
+
+![Immediate Actions](https://github.com/user-attachments/assets/e6f0aec7-dd9f-492d-a1d6-7ff0bacae821)
+
+![Short Term Actions](https://github.com/user-attachments/assets/2d1df32b-b499-4511-aec7-bf8c4f56a796)
+
+![Long Term Actions](https://github.com/user-attachments/assets/e05f79f4-f52f-4af0-8b0d-2a50cfffe15e)
+
+
+ Simulation Results & KPIs
+
+ ![Results](https://github.com/user-attachments/assets/7c9fb26a-f0fd-48cc-abec-676ec1592eb4)
+
+  Lessons Learned
+These are honest reflections from the simulation — the kind of self-assessment that separates good analysts from great ones.
+
+What Went Well
+1. Asset Prioritization Was Immediately Applied
+From the first alert, attention was directed toward the CEO and other high-value targets. This instinct is critical in a real SOC environment the worst outcome is missing a C-suite compromise because you were busy with low-priority noise.
+
+2. True Positive Rate Was Perfect
+Every genuine threat was identified and escalated. In a real incident, a missed true positive can mean the difference between a contained breach and a full-scale compromise.
+
+3. Contextual Correlation Was Strong
+The connection between the phishing email at 15:00 and the RDPclip.exe activity at 15:16 was identified by correlating timestamps — a skill that requires experience and careful log reading, not just running queries.
+
+
+⚠️ Areas for Improvement
+1. Mean Time to Respond (MTTR) Was Slower Than Average
+Speed matters in SOC work. The time spent on process research, while thorough, could be improved by maintaining a personal reference sheet of common legitimate processes (svchost.exe, taskhost.exe, trustedinstaller.exe, etc.) for rapid dismissal.
+
+Action: I built and maintain a personal process baseline reference. Pre-categorize known Windows system processes with their expected parent processes, typical locations, and legitimate use cases.
+
+2. Some Alerts Were Over-Classified as True Positives
+A handful of alerts were marked as true positives that should have been false positives. In a real SOC environment, over-escalation creates noise for senior analysts and can lead to alert fatigue across the team.
+
+Action: Before marking any process alert as a true positive, run a three-part check:
+(1) Is this process known-good?
+(2) Is it executing from its expected location?
+(3) Does the surrounding context (recent phishing, unusual timing) actually connect to it?
+
+3. Alert Management Under High Volume Was Challenging
+As alerts flooded in during the later stages of the simulation, it became harder to maintain organised triage. In a real incident, this can lead to missed alerts.
+
+Action: In high-volume situations, I will immediately sort alerts by asset priority (executives first) and severity. Use a triage queue and do not open alerts out of order. If volume is unmanageable, I will escalate for additional analyst support before falling behind.
+
+4. Documentation Speed Needs Improvement
+Writing detailed notes for each alert slowed the response time. While quality documentation is non-negotiable, templates would significantly speed up the process.
+
+Action: I will create pre-built alert documentation templates for common scenarios (phishing email, suspicious process, privilege escalation) that can be filled in rapidly rather than written from scratch.
+
+ 
+ Skills Demonstrated
+ ![Skills Demonstrated](https://github.com/user-attachments/assets/79f9bbf7-a6d4-4e45-8a34-67ef5373c540)
+
+
+
+ 🔗 References
+ MITRE ATT&CK Framework https://attack.mitre.org/
+TryHackMe SOC Simulator https://tryhackme.com/soc-sim
+Splunk Documentation  https://docs.splunk.com/Documentation
+VirusTotal https://www.virustotal.com/
+ANY.RUN Sandbox https://any.run/
+URLScan.io https://urlscan.io/
+PowerView — PowerSploit https://github.com/PowerShellMafia/PowerSploit
+MITRE CAR Analytics https://car.mitre.org/
+
+
+
+
+👤 Author
+Akpoga Dickson Ojama
+SOC Analyst | CompTIA Security+ | Network+ | A+ | CSIS
+
+"The best SOC analysts don't just find threats — they understand them, document them, learn from them, and make the whole system smarter because of them."
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
