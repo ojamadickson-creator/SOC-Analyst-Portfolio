@@ -1,6 +1,6 @@
 # SOC-Analyst-Portfolio(TryHackMe)
 
-Phishing to Compromise: A SOC Analyst's Full Investigation
+From Inbox to Breach: A CEO Phishing Attack Investigated
 
 Hands-on SOC Analyst projects including Splunk SIEM detection rules, and phishing email analysis.
  
