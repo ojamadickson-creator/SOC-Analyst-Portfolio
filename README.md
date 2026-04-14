@@ -186,6 +186,10 @@ One of the most valuable skills a SOC analyst brings is not just detecting threa
 
 
  Simulation Results & KPIs
+ <img width="2634" height="870" alt="Cybersecurity Breach Prevention Success Notification" src="https://github.com/user-attachments/assets/c98da7a9-28e9-4597-8d71-e5423da09448" />
+<img width="2602" height="1784" alt="Security Alert Performance Dashboard" src="https://github.com/user-attachments/assets/1c4d190b-f5bf-418d-8294-354bc47628db" />
+<img width="2644" height="1696" alt="Cybersecurity Incident Analysis Dashboard" src="https://github.com/user-attachments/assets/08abd745-1dc0-447c-945f-b967861b0575" />
+
 
  ![Results](https://github.com/user-attachments/assets/7c9fb26a-f0fd-48cc-abec-676ec1592eb4)
 
