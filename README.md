@@ -1,5 +1,12 @@
 # SOC-Analyst-Portfolio(TryHackMe)
-Hands-on SOC Analyst projects including Splunk SIEM detection rules, Wireshark incident response investigations, and phishing email analysis.
+
+
+Hands-on SOC Analyst projects including Splunk SIEM detection rules, and phishing email analysis.
+ 
+ 
+ 
+ 
+ 
  Table of Contents
 
 Executive Summary 
@@ -35,7 +42,7 @@ Lessons Learned
 
 Skills Demonstrate
 
- 
+ Full Video of me triaging the alerts can be found here https://youtu.be/qFOPJSvQ7e4
 
  
  Executive Summary
@@ -94,10 +101,13 @@ Verdict: Routine scheduling activity. Dismissed — though flagged as worth moni
  
 <img width="2724" height="1128" alt="CEO email with attachment" src="https://github.com/user-attachments/assets/78380906-5e3c-4354-8aad-559ffc6e27c6" />
 
+
  The Entry Point — A Fake Invoice Email
 Everything started with a single email landing in the CEO's inbox. On the surface, it looked like a routine billing notification. The sender claimed the CEO's account was 30 days overdue and threatened legal action unless payment was processed immediately. Attached was a ZIP file named "Important Invoice February."
 Several things made this stand out immediately. The sender's domain had a negative reputation score — a red flag that showed up the moment it was checked against threat intelligence. Inside the ZIP was what appeared to be a PDF, but a closer look at the file extension revealed something was off. It was actually a disguised executable program designed to run when opened, not a document designed to be read.
 The urgency in the language, the financial pressure, the threat of legal consequences — all classic social engineering tactics designed to make someone act before they think. 
+<img width="4992" height="1725" alt="Splunk Enterprise search interface displaying email event log details" src="https://github.com/user-attachments/assets/36911d4f-d0d7-437b-b415-e4ce23321e25" />
+
 
  Signs of Remote Access — RDPclip.exe
 Within minutes of the phishing email being delivered, an unusual process appeared on the CEO's workstation — RDPclip.exe. This is a legitimate Windows process that manages clipboard sharing during Remote Desktop sessions. On its own, it raises no alarm. In context, it was deeply concerning.
@@ -146,13 +156,42 @@ Social Engineering: Urgency + Financial Threat + Legal Threat
 Post-Compromise Activity
 ![Post-Compromise](https://github.com/user-attachments/assets/eb3c29b1-25da-4d38-b62a-ba0992fa267a)
 
-MITRE ATT&CK Mapping
+MITRE ATT&CK Mapping (Reviewed and Refined)
 ![MITRE](https://github.com/user-attachments/assets/f0bb2560-b24b-4445-b090-2250c7a77807)
 
 Incident Report
 INCIDENT ID: INC-2024-001 Classification: CRITICAL Status: Contained — Pending Full Forensic Review Analyst: Dickson Ojama
 
 A targeted spear-phishing email was delivered to CEO Michael Scott at approximately 15:00. The email impersonated a billing entity and contained a malicious executable disguised as an invoice PDF inside a ZIP archive. Upon execution, the attacker established remote access to the CEO's workstation (Host 3459), deployed post-exploitation tools (PowerView and PowerUp), performed extensive network reconnaissance using repeated NSLOOKUP queries, attempted privilege escalation via Net.exe, and used Robocopy to stage files for exfiltration. 
+15:15  ──► Phishing email delivered to CEO inbox
+            Attachment: "important invoice february.zip"
+            Social engineering: Overdue payment + legal threat
+
+15:16  ──► SOC Alert ID 1005 generated — Analyst takes ownership
+
+15:18  ──► Issue escalated to contact CEO: advised NOT to open attachment
+            and Attachment submitted to sandbox for analysis
+
+15:16  ──► RDPclip.exe detected on CEO workstation (Host 3450)
+            AND on Sales workstation (Host 3453) simultaneously
+            → Indicates remote connection likely established
+
+15:37 ──► PowerShell execution detected on CEO host
+            → Previous phishing history noted — escalated immediately
+
+15:37  ──► PowerView.ps1 dropped to C:\Users\Michael.ascott\Downloads\
+            PowerUp.ps1 dropped to same directory
+            → Domain enumeration begins
+
+15:40  ──► NSLOOKUP queries ×6 detected from CEO workstation
+            → Active network reconnaissance confirmed
+
+15:38 ──► Net.exe executed from elevated command prompt
+            → Privilege escalation attempt confirmed
+
+15:39  ──► Robocopy command detected via PowerShell
+            Target: Financial records from System32 to Host 3450 Download folder
+            → Data staging and exfiltration in progress
 
 Indicators of Compromise (IOCs)
 
