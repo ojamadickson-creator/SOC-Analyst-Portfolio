@@ -252,6 +252,9 @@ Speed matters in SOC work. The time spent on process research, while thorough, c
 
 Action: I built and maintain a personal process baseline reference. Pre-categorize known Windows system processes with their expected parent processes, typical locations, and legitimate use cases.
 
+Below is my searchable Process Relationship Wiki ![Process-Wiki](https://github.com/user-attachments/assets/671ad1ad-a4f6-480d-9484-36fece1c3204)
+
+
 2. Some Alerts Were Over-Classified as True Positives
 A handful of alerts were marked as true positives that should have been false positives. In a real SOC environment, over-escalation creates noise for senior analysts and can lead to alert fatigue across the team.
 
