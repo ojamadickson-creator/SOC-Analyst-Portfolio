@@ -120,6 +120,27 @@ Before triaging alerts, a SOC analyst must understand the organization's asset l
 
 ---
 
+
+## Technical & Operational Skills Demonstrated
+SOC Alert Triage & Noise Reduction: Processed and triaged 32 real-time security alerts under simulated queue pressure, achieving a 100% True Positive identification rate while successfully filtering out non-malicious noise (71% False Positive dismissal rate) to protect against alert fatigue.
+
+Executive Phishing & Social Engineering Analysis: Analyzed targeted executive spear-phishing (whaling) mechanics, inspecting email headers, identifying sender domain reputation flags, and detecting double-extension archive payloads (.pdf.exe masquerading inside .zip).
+
+Threat Intelligence & Sandbox Enrichment: Integrated OSINT and dynamic sandboxing tools (VirusTotal, ANY.RUN, URLScan.io) to enrich Indicators of Compromise (IOCs), extract reputation metrics, and verify malicious binaries.
+
+Host Forensics & Process Execution Analysis: Tracked adversary behavior on the endpoint, detecting living-off-the-land techniques and anomalous binaries launching from user directories (C:\Users\Michael.ascott\Downloads\), including RDPclip.exe session hijacks, Net.exe privilege escalation, and reconnaissance/staging via Robocopy.
+
+Offensive Tooling Detection (Active Directory): Identified dropped offensive PowerShell scripts (PowerView.ps1, PowerUp.ps1) utilized for domain mapping, local privilege escalation audits, and rapid sequential DNS reconnaissance (NSLOOKUP).
+
+Detection Engineering & Alert Tuning: Authored root-cause analysis and operational tuning proposals to reduce noise by ~25% overall (standard Windows process whitelisting for svchost.exe/taskhost.exe and priority stratification for bulk spam vs. spear-phishing).
+
+Incident Response & Containment Methodology: Formulated structured containment and recovery playbooks across immediate (host isolation, memory dumps, process eviction), short-term (credential revocation, network flow review), and long-term remediation phases.
+
+Adversary Framework Alignment: Mapped the complete intrusion lifecycle to 8 MITRE ATT&CK techniques spanning Initial Access (T1566.001), Execution (T1059.001), Privilege Escalation (T1078), Discovery (T1018, T1083), Collection (T1074), and Exfiltration (T1048).
+
+
+---
+
 ## Alert Triage Summary
 
 ### False Positives
